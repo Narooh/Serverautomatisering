@@ -1,0 +1,1 @@
+New-Item -Path C:\Users\krizo\ -Name "Serverautomatisering" -ItemType Directory
