@@ -1,0 +1,22 @@
+FirstName;Initials;LastName;Username;Email;StreetAddress;City;ZipCode;State;Country;Department;Password;Telephone;JobTitle;Company;Ou
+Bitten;BITCH;Christensen;BITCH;bitch@cbz.dk;Hyggevej 1;Ringsted;4100;;DK;Service;Kode1234!;23546796;Tekniker;TT Hotels;OU=Service,OU=Users,OU=Company,DC=TTHotels,DC=com
+Klaes;KLOVN;Ovnen;KLOVN;klovn@cbz.dk;Hyggevej 2;Ringsted;4100;;DK;Leisure Management;Kode1234!;23546795;Eventkoordinator;TT Hotels;OU=LM,OU=Users,OU=Company,DC=TTHotels,DC=com
+Martin;MAKEE;Kee;MAKEE;makee@cbz.dk;Hyggevej 3;Ringsted;4100;;DK;Cleaning;Kode1234!;;Rengøring;TT Hotels;OU=Cleaning,OU=Users,OU=Company,DC=TTHotels,DC=com
+Lone;LOMME;Meredith;LOMME;lomme@cbz.dk;Hyggevej 4;Ringsted;4100;;DK;Instructors;Kode1234!;23546793;Instruktør;TT Hotels;OU=Instructors,OU=Users,OU=Company,DC=TTHotels,DC=com
+Falder;FALKE;Kee;FALKE;falke@cbz.dk;Hyggevej 5;Ringsted;4100;;DK;HR;Kode1234!;;Receptionist;TT Hotels;OU=HR,OU=Users,OU=Company,DC=TTHotels,DC=com
+Poul;POMPO;Poulsen;POMPO;pompo@cbz.dk;Hyggevej 6;Ringsted;4100;;DK;HR;Kode1234!;23546791;HR;TT Hotels;OU=HR,OU=Users,OU=Company,DC=TTHotels,DC=com
+Markus;MARKU;Madsen;MARKU;marku@cbz.dk;Hyggevej 7;Ringsted;4100;;DK;Service;Kode1234!;23546790;Tekniker;TT Hotels;OU=Service,OU=Users,OU=Company,DC=TTHotels,DC=com
+Bruce;BRUCE;Bruce;BRUCE;bruce@cbz.dk;Hyggevej 8;Ringsted;4100;;DK;Leisure Management;Kode1234!;23546789;Eventkoordinator;TT Hotels;OU=LM,OU=Users,OU=Company,DC=TTHotels,DC=com
+Trine;TRIEN;Nguyen;TRIEN;trien@cbz.dk;Hyggevej 9;Ringsted;4100;;DK;Instructors;Kode1234!;23546788;Instruktør;TT Hotels;OU=Instructors,OU=Users,OU=Company,DC=TTHotels,DC=com
+Maya;MAYAN;Andersen;MAYAN;mayan@cbz.dk;Hyggevej 10;Ringsted;4100;;DK;Direction;Kode1234!;23546787;CFO;TT Hotels;OU=Direction,OU=Users,OU=Company,DC=TTHotels,DC=com
+Søren;SOREN;Olsen;SOREN;soren@cbz.dk;Hyggevej 11;Ringsted;4100;;DK;Cleaning;Kode1234!;;Rengøring;TT Hotels;OU=Cleaning,OU=Users,OU=Company,DC=TTHotels,DC=com
+Michella;MICHE;Kristensen;MICHE;miche@cbz.dk;Hyggevej 12;Ringsted;4100;;DK;Leisure Management;Kode1234!;23546785;Eventkoordinator;TT Hotels;OU=LM,OU=Users,OU=Company,DC=TTHotels,DC=com
+Alex;ALENE;Ågård;ALENE;alene@cbz.dk;Hyggevej 13;Ringsted;4100;;DK;HR;Kode1234!;23546784;HR;TT Hotels;OU=HR,OU=Users,OU=Company,DC=TTHotels,DC=com
+Kristina;KRISE;Krise;KRISE;krise@cbz.dk;Hyggevej 14;Ringsted;4100;;DK;Instructors;Kode1234!;23546783;Instruktør;TT Hotels;OU=Instructors,OU=Users,OU=Company,DC=TTHotels,DC=com
+Allan;ALLNO;Norge;ALLNO;allno@cbz.dk;Hyggevej 15;Ringsted;4100;;DK;Economy;Kode1234!;23546782;LØN;TT Hotels;OU=Economy,OU=Users,OU=Company,DC=TTHotels,DC=com
+Tue;TUSKE;Skel;TUSKE;tuske@cbz.dk;Hyggevej 16;Ringsted;4100;;DK;Cleaning;Kode1234!;;Rengøring;TT Hotels;OU=Cleaning,OU=Users,OU=Company,DC=TTHotels,DC=com
+Nanna;NANAE;AEgames;NANAE;nanae@cbz.dk;Hyggevej 17;Ringsted;4100;;DK;HR;Kode1234!;;Receptionist;TT Hotels;OU=HR,OU=Users,OU=Company,DC=TTHotels,DC=com
+Ole Poul;OPOPO;Poulsen;OPOPO;opopo@cbz.dk;Hyggevej 18;Ringsted;4100;;DK;HR;Kode1234!;;Receptionist;TT Hotels;OU=HR,OU=Users,OU=Company,DC=TTHotels,DC=com
+Morten;MORTE;Temlig;MORTE;morte@cbz.dk;Hyggevej 19;Ringsted;4100;;DK;Economy;Kode1234!;23546778;LØN;TT Hotels;OU=Economy,OU=Users,OU=Company,DC=TTHotels,DC=com
+Kenneth;KENTH;Hehe;KENTH;kenth@cbz.dk;Hyggevej 20;Ringsted;4100;;DK;Service;Kode1234!;23546777;Tekniker;TT Hotels;OU=Service,OU=Users,OU=Company,DC=TTHotels,DC=com
+Hallom;HALLO;Lone;HALLO;hallo@cbz.dk;Hyggevej 21;Ringsted;4100;;DK;Instructors;Kode1234!;23546776;Instruktør;TT Hotels;OU=Instructors,OU=Users,OU=Company,DC=TTHotels,DC=com
