@@ -1,13 +1,17 @@
 #Dette er et script der kører et "mysqldump" altså en backup af hele "hoteldb" databasen og gemmer det i en shared mappe på domænet. Crontab automatiserer scriptet til at køre en gang hver dag kl 12:00
 
 #!/bin/bash
+RED='\033[1;41m'
+WHITE='\033[0:37m'
+GREEN='\033[1;42m'
+
 mysqldump -u krilu@TTHotels.com -pKode1234! hoteldb > /run/user/1016601127/gvfs/smb-share:server=192.168.10.2,share=it/DB_Backup/HoteldbBU-$(date -d "today" + "%d%m%Y-%H%M").sql
 
 if [ $? -eq 0 ]
 then
-    echo "Backup saved successfully." > /run/user/1016601127/gvfs/smb-share:server=192.168.10.2,share=it/DB_Backup_log/Log.log
+    echo -e "${GREEN} $(date -d "today" +"%d%m%Y-%H%M") Backup saved successfully. ${WHITE}" >> /run/user/1016601127/gvfs/smb-share:server=192.168.10.2,share=it/DB_Backup_log/Log.log
 else 
-    echo "Backup failed. $(tail /var/log/cron)" > /run/user/1016601127/gvfs/smb-share:server=192.168.10.2,share=it/DB_Backup_log/Log.log
+    echo -e "${RED} $(date -d "today" +"%d%m%Y-%H%M") Backup failed. See /var/log/cron for more - below is the latest 3 entries. ${WHITE} \n $(tail -3 /var/log/cron)" >> /run/user/1016601127/gvfs/smb-share:server=192.168.10.2,share=it/DB_Backup_log/Log.log
 
 fi
 
