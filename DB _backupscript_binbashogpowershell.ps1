@@ -3,6 +3,13 @@
 #!/bin/bash
 mysqldump -u krilu@TTHotels.com -pKode1234! hoteldb > /run/user/1016601127/gvfs/smb-share:server=192.168.10.2,share=it/DB_Backup/HoteldbBU-$(date -d "today" + "%d%m%Y-%H%M").sql
 
+if [ $? -eq 0 ]
+then
+    echo "Backup saved successfully." > /run/user/1016601127/gvfs/smb-share:server=192.168.10.2,share=it/DB_Backup_log/Log.log
+else 
+    echo "Backup failed. $(tail /var/log/cron)" > /run/user/1016601127/gvfs/smb-share:server=192.168.10.2,share=it/DB_Backup_log/Log.log
+
+fi
 
 #gem ovenstående som fil på db serveren, lav crontab -e og indsæt følgende:
 0 12 * * * /bin/sh /home/krilu@TTHotels.com/cron/bu.sh
