@@ -1,11 +1,8 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
-#$scriptRoot=\\TTADDS\TTHotels\temp
+$inputFilePath="\\TTADDS\TTHotels\temp\testemployees1.CSV"
 
-$inputFilePath="C:\Users\KRILU\Documents\testemployees1.csv"
-#$outputFilePath="$scriptRoot\testempoutput.csv"
-#$names=Import-Csv -Path $inputFilePath
 
 #Variabler
 
@@ -35,27 +32,6 @@ $okButton = New-Object $ButtonObject
 $okButton.Location = New-Object System.Drawing.Point(400,550)
 $okButton.Size = New-Object System.Drawing.Size(75,23)
 $okButton.Text = 'OK'
-#$okButton.Add_Click({
-#    $runspace = [powershell]::Create().AddScript({
-#        param($label, $AppForm)
-#        try { 
-#            ..
-#
-#            $AppForm.Invoke([Action]{
-#                $label.Text = "Medarbejderen '$($username.Text)' er tilføjet til Medarbejderlisten. Forventet oprettelse i AD, indenfor de næste 60 min."
-#                })
-#
-#        } catch { 
-#            $AppForm.Invoke([Action]{
-#                $label.Text = "Fejl ved tilføjelse af medarbejder: $_"
-#
-#            })
-#        }
-#    }).AddArgument($label).AddArgument($AppForm)
-#
-#    $runspace.BeginInvoke()
-#
-#})
 $okButton.DialogResult = [System.Windows.Forms.DialogResult]::OK
 $AppForm.AcceptButton = $okButton
 $AppForm.Controls.Add($okButton)
@@ -277,51 +253,45 @@ $tbPassword.Size = New-Object System.Drawing.Size(260,20)
 $AppForm.Controls.Add($tbPassword)
 
 
- # SamAccountName      = $User.username
-  #          UserprincipalName   = "$($User.username)@$UPN"
-   #         Name                = "$($User.firstname) $($User.lastname)"
-    #        GivenName           = $User.firstname
-     #       Surname             = $User.lastname
-      #      Initial             = $User.initials
-       #     Enabled             = $true
-        #    DisplayName         = "$($User.firstname) $($User.lastname)"
-         #   Path                = $User.ou
-          #  City                = $User.city 
-           # PostalCode          = $User.zipcode
-            #Country             = $User.country
-            #Company             = $User.company 
-            #State               = $User.state 
-            #StreetAddress       = $User.streetaddress 
-            #OfficePhone         = $User.telephone
-            #EmailAddress        = $User.email 
-            #Title               = $User.jobtitle
-            #Department          = $User.department 
-            #AccountPassword     = (ConvertTo-SecureString $User.password -AsPlainText -Force)
-            #ChangePasswordAtLogon = $true
-
-
 $AppForm.Topmost = $true
-
-#$form.Add_Shown({$tbFirstName.Select(),$tbInitial.Select(),$tbusername.Select(),$tbFullName.Select(),$tbLastName.Select(),$tbEnabled.Select() $lblusername.Select(), $lblFullName.Select(), $lblFirstName.Select(), $lblLastName.Select(), $lblInitial.Select(), $lblEnabled.Select(), $lblDisplayName.Select(), $lblPath.Select(), $lblCity.Select(), $lblPostalCode.Select(), $lblCountry.Select(), $lblCompany.Select(), $lblState.Select(), $lblStreetAddress.Select(), $lblOffPhone.Select(), $lblemail.Select(), $lbltitle.Select(), $lbldepartment.Select(), $lblPassword.Select(), })
-
-
  
 $AppForm.Add_Shown({$tbusername.Select(), $tbFullName.Select(), $tbFirstName.Select(), $tbLastName.Select(), $tbInitial.Select(), $tbEnabled.Select(), $tbDisplayName.Select(), $tbPath.Select(), $tbCity.Select(), $tbPostalCode.Select(), $tbPostalCode.Select(), $tbCountry.Select(), $tbCompany.Select(), $tbState.Select(), $tbStreetAddress.Select(), $tbOffPhone.Select(), $tbemail.Select(), $tbTitle.Select(), $tbdepartment.Select(), $tbPassword.Select()})
 
-#$AppForm.Controls.Add($label)
-#$AppForm.Controls.AddRange(@($lblusername, $lblFullName, $lblFirstName, $lblLastName, $lblInitial, $lblEnabled, $lblDisplayName, $lblPath, $lblCity, $lblPostalCode, $lblCountry, $lblCompany, $lblState, $lblStreetAddress, $lblOffPhone, $lblemail, $lbltitle, $lbldepartment, $lblPassword, $tbusername, $tbFullName, $tbFirstName, $tbLastName, $tbInitial, $tbEnabled, $tbDisplayName, $tbPath, $tbCity, $tbPostalCode, $tbPostalCode, $tbCountry, $tbCompany, $tbState, $tbStreetAddress, $tbOffPhone, $tbemail, $tbTitle, $tbdepartment, $tbPassword))
-#$AppForm.ShowDialog()
+$AppForm.Controls.AddRange(@($lblusername, $lblFullName, $lblFirstName, $lblLastName, $lblInitial, $lblEnabled, $lblDisplayName, $lblPath, $lblCity, $lblPostalCode, $lblCountry, $lblCompany, $lblState, $lblStreetAddress, $lblOffPhone, $lblemail, $lbltitle, $lbldepartment, $lblPassword))
 
 
 $result = $Appform.ShowDialog()
 
 if ($result -eq [System.Windows.Forms.DialogResult]::OK)
 { 
+    $headers = @(
+        "FirstName", "Initials", "LastName", "Username", "Email",
+        "StreetAddress", "City", "ZipCode", "State", "Country",
+        "Department", "Password", "Telephone", "JobTitle", "Company", "Ou"
+    )
 
-        $newRow = New-Object PsObject -Property @{ FirstName = $tbFirstName.text ; Initials = $tbInitial.text ; LastName = $tbLastName.text ; UserName = $tbusername.text ; Email = $tbemail.text ; StreetAddress = $tbStreetAddress.text ; City = $tbCity.text ; Zipcode = $tbPostalCode.text ; Country = $tbCountry.text ; Department = $tbdepartment.text ; Password = $tbPassword.text ; Telephone = $tbOffPhone.text ; JobTitle = $tbTitle.text ; Company = $tbCompany.text ; Ou = $tbPath.text }
+    $values = @(
+        $tbFirstName.Text,
+        $tbInitial.Text,
+        $tbLastName.Text,
+        $tbusername.Text,
+        $tbemail.Text,
+        $tbStreetAddress.Text,
+        $tbCity.Text,
+        $tbPostalCode.Text,
+        $tbState.Text,
+        $tbCountry.Text,
+        $tbdepartment.Text,
+        $tbPassword.Text,
+        $tbOffPhone.Text,
+        $tbTitle.Text,
+        $tbCompany.Text,
+        $tbPath.Text
+    )
 
-        Export-Csv $inputFilePath -InputObject $newRow -Append -Force
+    if (-not (Test-Path $inputFilePath)) {
+        ($headers -join ';') | Out-File -FilePath $inputFilePath -Encoding UTF8
+    }
 
+    ($values -join ';') | Add-Content -Path $inputFilePath -Encoding UTF8
 }
-
-#$AppForm.Dispose()
