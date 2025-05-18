@@ -17,7 +17,7 @@ foreach ($User in $ADUsers) {
             DisplayName         = "$($User.firstname) $($User.lastname)"
             Path                = $User.ou
             City                = $User.city 
-            PostalCode          = $Uder.zipcode
+            PostalCode          = $User.zipcode
             Country             = $User.country
             Company             = $User.company 
             State               = $User.state 
@@ -31,7 +31,7 @@ foreach ($User in $ADUsers) {
         }
 
         if (Get-ADUser -Filter "SamAccountName -eq '$($User.username)'") {
-            Write-Host "A user with username $($User.username) already exists in Active Directory." -ForegroundColor Pink
+            Write-Host "A user with username $($User.username) already exists in Active Directory." -ForegroundColor Yellow
         }
         else {
             New-ADUser @UserParams 
