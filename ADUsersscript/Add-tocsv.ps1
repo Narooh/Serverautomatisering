@@ -14,14 +14,14 @@ $TextBox=[System.Windows.Forms.TextBox]
 
 
 $AppForm=New-Object $FormObject
-$AppForm.ClientSize='1000,600'
+$AppForm.ClientSize='550,600'
 $AppForm.Text='Opret ny medarbejder'
 $AppForm.BackColor='White'
 $AppForm.Font='Verdana,10'
 
 
 $cancelButton = New-Object $ButtonObject
-$cancelButton.Location = New-Object System.Drawing.Point(500,550)
+$cancelButton.Location = New-Object System.Drawing.Point(300,550)
 $cancelButton.Size = New-Object System.Drawing.Size(90,23)
 $cancelButton.Text = 'Annuller'
 $cancelButton.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
@@ -29,7 +29,7 @@ $AppForm.CancelButton = $cancelButton
 $AppForm.Controls.Add($cancelButton)
 
 $okButton = New-Object $ButtonObject
-$okButton.Location = New-Object System.Drawing.Point(400,550)
+$okButton.Location = New-Object System.Drawing.Point(200,550)
 $okButton.Size = New-Object System.Drawing.Size(75,23)
 $okButton.Text = 'OK'
 $okButton.DialogResult = [System.Windows.Forms.DialogResult]::OK
@@ -43,7 +43,7 @@ $label.Location = New-Object System.Drawing.Point(10,530)
 $label.AutoSize=$true
 $label.Text = ''
 
-
+#region Labels og tekstbokse
 $lblusername=New-Object $LabelObject
 $lblusername.Text='Brugernavn'
 $lblusername.AutoSize=$true
@@ -251,7 +251,7 @@ $tbPassword = New-Object $TextBox
 $tbPassword.Location = New-Object System.Drawing.Point(250,470)
 $tbPassword.Size = New-Object System.Drawing.Size(260,20)
 $AppForm.Controls.Add($tbPassword)
-
+#endregion
 
 $AppForm.Topmost = $true
  
