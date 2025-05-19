@@ -1,6 +1,8 @@
+Enter-PSSession -ComputerName TTADDS
 Import-Module ActiveDirectory
 
-$ADUsers = Import-Csv "C:\Users\krizo\Serverautomatisering\testemployees1.CSV" -Delimiter ";"
+$logFile="\\TTADDS\TTHotels\IT\ADUsers_log\runlog.log"
+$ADUsers = Import-Csv "\\TTADDS\TTHotels\temp\testemployees1.CSV" -Delimiter ";"
 $UPN = "TTHotels.com"
 
 foreach ($User in $ADUsers) {
@@ -32,13 +34,18 @@ foreach ($User in $ADUsers) {
 
         if (Get-ADUser -Filter "SamAccountName -eq '$($User.username)'") {
             Write-Host "A user with username $($User.username) already exists in Active Directory." -ForegroundColor Yellow
+            #Add-Content -Value "$(Get-Date) | A user with username $($User.username) already exists in Active Directory." -Path $logFile
         }
         else {
             New-ADUser @UserParams 
             Write-Host "The user $($User.username) is created." -ForegroundColor Green
+            Add-Content -Value "$(Get-Date) | The user $($User.username) is created." -Path $logFile
         }
     }
     catch {
         Write-Host "Failed to create user $($User.username) - $_" -ForegroundColor Red
+        Add-Content -Value "$(Get-Date) | Failed to create user $($User.username) - $_" -Path $logFile
     }    
 }
+
+Exit-PSSession
